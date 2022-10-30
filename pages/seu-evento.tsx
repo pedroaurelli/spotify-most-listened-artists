@@ -9,7 +9,11 @@ export default function seuEvento () {
 
   const accessToken = useAsync(() => client.getUserAccessToken(`${router.query.code}`), [ router.isReady ])
 
+  console.log(accessToken.result)
+
   const result = useAsync(() => client.getUserTopArtists(accessToken.result?.access_token || ''), [ accessToken.result ])
+
+  console.log(result.result)
 
   return (
     <>
