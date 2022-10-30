@@ -25,7 +25,6 @@
         "quotes": ["error","single"],
         "semi": ["error","never"],
         "array-bracket-newline": ["error", { "minItems": 3 }],
-        "array-bracket-spacing": ["error", "always"],
         "arrow-spacing": "error",
         "block-spacing": "error",
         "brace-style": "error",
