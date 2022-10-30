@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 const Home: NextPage = () => {
   const router = useRouter()
-  const authSpotifyUrl = 'https://accounts.spotify.com/authorize?client_id=3b588beb14524a86b378bb24e9df3b6f&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fseu-evento&scope=user-top-read'
+  const authSpotifyUrl = `https://accounts.spotify.com/authorize?client_id=${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI}&scope=user-top-read`
 
   return (
     <div className={styles.container}>

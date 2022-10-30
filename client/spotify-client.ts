@@ -5,15 +5,13 @@ import { UserAccessTopArtists } from './types/user-access-top-artists'
 export default class SpotifyClient {
   private spotifyAccount: AxiosInstance
   private spotifyApi: AxiosInstance
-  private authorizationCode: string
 
   constructor () {
-    this.authorizationCode = process.env.SPOTIFY_ENCODE_BASE64_CODE || '/'
 
     this.spotifyAccount = axios.create({
       baseURL: 'https://accounts.spotify.com',
       headers: {
-        'Authorization': 'Basic M2I1ODhiZWIxNDUyNGE4NmIzNzhiYjI0ZTlkZjNiNmY6MDU1NDBjMTI5YzBlNDNjYjg0ZDhkY2JhMGFjMjZlMzI=',
+        'Authorization': `Basic ${process.env.NEXT_PUBLIC_SPOTIFY_ENCODE_BASE64_CODE}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
@@ -32,7 +30,7 @@ export default class SpotifyClient {
       {
         'grant_type': 'authorization_code',
         'code': `${queryCode}`,
-        'redirect_uri': 'http://localhost:3000/seu-evento'
+        'redirect_uri': `${process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI}`
       }
     )).data
   }
