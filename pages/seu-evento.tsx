@@ -5,26 +5,23 @@ import SpotifyClient from '../client/spotify-client'
 
 export default function seuEvento () {
   const router = useRouter()
-
-  console.log(router.query.code)
-
   const client = new SpotifyClient()
 
   const accessToken = useAsync(() => client.getUserAccessToken(`${router.query.code}`), [ router.query ])
 
   const result = useAsync(() => client.getUserTopArtists(accessToken.result?.access_token || ''), [ accessToken.result ])
 
-  console.log(result.result)
+  const currentUser = useAsync(() => client.getCurrentUserProfile(accessToken.result?.access_token || ''), [ accessToken.result?.access_token ])
 
   return (
     <>
-      <h1>Seu evento!</h1>
-      <p>Access token: {accessToken.result?.access_token}</p>
+      <h1>Seu evento! {currentUser.result?.display_name}</h1>
+      <img src={currentUser.result?.images[0].url || ''} />
       <ul>
-        {result.result?.items.map(item => {
+        {result.result?.items.map((item, index) => {
           return (
             <li key={item.id}>
-              {item.name}
+              {index + 1} {item.name}
               <img src={item.images[0].url} />
             </li>
           )

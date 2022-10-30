@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
+import { SpotifyCurrentUserResult } from './types/spotify-current-user-result'
 import { UserAccessTokenResult } from './types/user-access-token-result'
 import { UserAccessTopArtists } from './types/user-access-top-artists'
 
@@ -37,6 +38,14 @@ export default class SpotifyClient {
 
   async getUserTopArtists (accessToken: string): Promise<UserAccessTopArtists> {
     return (await this.spotifyApi.get('/v1/me/top/artists',{
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })).data
+  }
+
+  async getCurrentUserProfile (accessToken: string): Promise<SpotifyCurrentUserResult> {
+    return (await this.spotifyApi.get('/v1/me', {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }

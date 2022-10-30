@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
       <>
         <button onClick={() => router.push(authSpotifyUrl)}>
-          clique aqui
+          clique aqui!
         </button>
       </>
     </div>
