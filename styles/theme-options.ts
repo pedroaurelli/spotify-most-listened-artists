@@ -17,7 +17,17 @@ export const themeOptions: ThemeOptions = {
     },
   },
   typography: {
-    fontFamily: 'Gotham, sans-serif'
+    fontFamily: 'Gotham, sans-serif',
+    h1: {
+      fontSize: '40px',
+      fontWeight: '500',
+      color: '#fff'
+    },
+    h2: {
+      fontSize: '40px',
+      fontWeight: '500',
+      color: '#fff'
+    }
   },
   components: {
     MuiButton: {
