@@ -1,27 +1,17 @@
-import { Button, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { useAsyncCallback } from 'react-async-hook'
+import { useAsync } from 'react-async-hook'
 import SpotifyClient from '../../../client/spotify-client'
-import SpotifyIcon from '../../icons/SpotifyIcon'
 
 export default function GenerateTopArtistsPage () {
   const router = useRouter()
   const client = new SpotifyClient()
 
-  const accessToken = useAsyncCallback(() => client.getUserTopArtists(router.query.code as string))
+  const accessToken = useAsync(async () => await client.getUserTopArtists(router.query.code as string), [router.isReady])
 
   return (
     <>
-      {accessToken.status !== 'success' && (
-        <Button
-          variant='outlined'
-          startIcon={<SpotifyIcon color='#1DB954' />}
-          onClick={() => accessToken.execute()}
-        >
-          Descubra seu top 20!
-        </Button>
-      )}
       <Typography variant='h1' color='primary'>
         {accessToken.result?.user.display_name}
       </Typography>
