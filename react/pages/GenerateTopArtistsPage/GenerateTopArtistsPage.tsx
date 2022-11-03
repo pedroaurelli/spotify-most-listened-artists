@@ -1,8 +1,9 @@
-import { Typography } from '@mui/material'
+import { LinearProgress, Typography } from '@mui/material'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useAsync } from 'react-async-hook'
 import SpotifyClient from '../../../client/spotify-client'
+import UnauthorizedAccess from '../../components/UnauthorizedAccess'
 
 export default function GenerateTopArtistsPage () {
   const router = useRouter()
@@ -12,6 +13,11 @@ export default function GenerateTopArtistsPage () {
 
   return (
     <>
+      {accessToken.loading && (
+        <LinearProgress
+          color='primary'
+        />
+      )}
       <Typography variant='h1' color='primary'>
         {accessToken.result?.user.display_name}
       </Typography>
@@ -22,6 +28,7 @@ export default function GenerateTopArtistsPage () {
           </li>
         ))}
       </ul>
+      {accessToken.error && <UnauthorizedAccess />}
     </>
   )
 }
