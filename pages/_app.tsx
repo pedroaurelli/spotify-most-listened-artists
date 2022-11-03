@@ -1,9 +1,18 @@
 import React from 'react'
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import CustomThemeProvider from '../styles'
+import CssBaseline from '@mui/material/CssBaseline'
+import PageLayout from '../react/components/PageLayout'
 
 function MyApp ({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <CustomThemeProvider>
+      <CssBaseline />
+      <PageLayout>
+        <Component {...pageProps} />
+      </PageLayout>
+    </CustomThemeProvider>
+  )
 }
 
 export default MyApp
