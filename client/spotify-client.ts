@@ -1,7 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
-import { SpotifyCurrentUserResult } from './types/spotify-current-user-result'
-import { UserAccessTokenResult } from './types/user-access-token-result'
-import { UserAccessTopArtists } from './types/user-access-top-artists'
+import { getUserTopArtistsResult } from './types/get-user-top-artists-result'
 
 export default class SpotifyClient {
   private spotifyAccount: AxiosInstance
@@ -20,35 +18,45 @@ export default class SpotifyClient {
     this.spotifyApi = axios.create({
       baseURL: 'https://api.spotify.com',
       headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Content-Type': 'application/json'
       }
     })
   }
 
-  async getUserAccessToken (queryCode: string): Promise<UserAccessTokenResult> {
+  async getUserTopArtists (queryCode: string): Promise<getUserTopArtistsResult | void> {
     return (await this.spotifyAccount.post('/api/token',
       {
         'grant_type': 'authorization_code',
         'code': `${queryCode}`,
         'redirect_uri': `${process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI}`
       }
-    )).data
-  }
+    )
+      .then(async (response) => {
+        const getArtists = await this.spotifyApi.get('/v1/me/top/artists', {
+          params: {
+            'time_range': 'short_term'
+          },
+          headers: {
+            Authorization: `Bearer ${response.data.access_token}`
+          }
+        })
 
-  async getUserTopArtists (accessToken: string): Promise<UserAccessTopArtists> {
-    return (await this.spotifyApi.get('/v1/me/top/artists',{
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })).data
-  }
+        const getCurrentUserProfile = await this.spotifyApi.get('/v1/me',{
+          headers: {
+            Authorization: `Bearer ${response.data.access_token}`
+          }
+        })
 
-  async getCurrentUserProfile (accessToken: string): Promise<SpotifyCurrentUserResult> {
-    return (await this.spotifyApi.get('/v1/me', {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })).data
+        const result: getUserTopArtistsResult = {
+          user: getCurrentUserProfile.data,
+          topArtists: getArtists.data
+        }
+
+        return result
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    )
   }
 }
