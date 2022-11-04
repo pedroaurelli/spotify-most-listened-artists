@@ -12,8 +12,8 @@ export const themeOptions: ThemeOptions = {
     },
     secondary: {
       main: '#191414',
-      light: '#191414',
-      dark: '#191414'
+      light: '#464646',
+      dark: '#1C1C1C'
     },
   },
   typography: {
@@ -27,6 +27,10 @@ export const themeOptions: ThemeOptions = {
       fontSize: '40px',
       fontWeight: '500',
       color: '#fff'
+    },
+    body1: {
+      fontSize: '24px',
+      fontWeight: '500px'
     }
   },
   components: {
