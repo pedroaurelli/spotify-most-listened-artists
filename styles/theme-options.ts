@@ -21,15 +21,29 @@ export const themeOptions: ThemeOptions = {
     h1: {
       fontSize: '40px',
       fontWeight: '500',
-      color: '#fff'
+      color: '#fff',
+      '@media (max-width:600px)': {
+        fontSize: '25px',
+      }
     },
     h2: {
       fontSize: '40px',
       fontWeight: '500',
-      color: '#fff'
+      color: '#fff',
+      '@media (max-width:600px)': {
+        fontSize: '30px',
+      }
+    },
+    h4: {
+      fontSize: '20px',
+      fontWeight: '500',
+      color: '#fff',
+      '@media (max-width:600px)': {
+        fontSize: '20px',
+      }
     },
     body1: {
-      fontSize: '24px',
+      fontSize: '20px',
       fontWeight: '500px'
     }
   },

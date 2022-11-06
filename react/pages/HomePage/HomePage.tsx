@@ -9,12 +9,12 @@ export default function HomePage () {
     <Grid container sx={{ height: '100vh', alignItems: 'center', textAlign: 'center' }}>
       <Grid item xs>
         <Typography
-          variant='h3'
+          variant='h1'
           sx={{ textDecoration: 'none', color: '#fff' }}
           mb={{ xs: '50px', md: '80px' }}
         >
           {'Quais '}
-          <Typography component='a' variant='h3' color='primary'>artistas</Typography>
+          <Typography component='a' variant='h1' color='primary'>artistas</Typography>
           {' você mais ouviu no mês?'}
         </Typography>
         <Button

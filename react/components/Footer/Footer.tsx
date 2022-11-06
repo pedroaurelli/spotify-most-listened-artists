@@ -28,9 +28,10 @@ export default function Footer () {
   return (
     <Box
       sx={{
-        position: 'fixed',
+        position: { xs: 'static', md: 'fixed' },
         bottom: '20px',
-        right: '50px'
+        right: '50px',
+        scale: { xs: '0.8', md: '1'}
       }}
     >
       <Stack
@@ -50,7 +51,12 @@ export default function Footer () {
           </IconButton>
         ))}
       </Stack>
-      <Typography fontWeight='300' color='#B8B8B8'>
+      <Typography
+        fontWeight='300'
+        color='#B8B8B8'
+        sx={{ whiteSpace: 'nowrap' }}
+        textAlign='center'
+      >
         Development by Pedro Aureliano
       </Typography>
     </Box>

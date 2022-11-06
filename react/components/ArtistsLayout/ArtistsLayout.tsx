@@ -1,6 +1,8 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Grid, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 import React from 'react'
 import { getUserTopArtistsResult } from '../../../client/types/get-user-top-artists-result'
+import SpotifyIcon from '../../icons/SpotifyIcon'
 
 export type ArtistsLayoutProps = {
   data: getUserTopArtistsResult
@@ -10,12 +12,11 @@ export default function ArtistsLayout (props: ArtistsLayoutProps) {
   const data = props.data
 
   return (
-    <Box
+    <Stack
       sx={{
-        width: '700px',
+        width: '650px',
         height: '100%',
-        borderRadius: '16px',
-        paddingBottom: '0px'
+        scale: { xs: '0.5', sm: '0.7', md: '1' }
       }}
     >
       <Grid
@@ -25,15 +26,20 @@ export default function ArtistsLayout (props: ArtistsLayoutProps) {
         {data.topArtists.items.map(item => (
           <Grid key={item.id} xs={1}>
             <Box
-              component='img'
-              src={item.images[0].url}
-              alt={item.name}
               sx={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
+                width: '130px',
+                height: '150px',
+                position: 'relative'
               }}
-            />
+            >
+              <Image
+                loader={() => item.images[0].url}
+                src={item.images[0].url}
+                alt={item.name}
+                layout='fill'
+                objectFit='cover'
+              />
+            </Box>
           </Grid>
         ))}
       </Grid>
@@ -43,13 +49,19 @@ export default function ArtistsLayout (props: ArtistsLayoutProps) {
           p: '16px'
         }}
       >
-        <Typography variant='h1' color='primary'>
-          {data.user.display_name}
-        </Typography>
-        <Typography variant='body1' color='#383838'>
-          pedroaurelli-spotify-project.vercel.app
-        </Typography>
+        <Stack direction='row' alignItems='center'>
+          <Stack direction='column'>
+            <Typography variant='h4' component='h1' color='primary'>
+                Mais escutados no mês por {data.user.display_name}
+            </Typography>
+            <Typography variant='body1' color='#383838'>
+                pedroaurelli-spotify-project.vercel.app
+            </Typography>
+          </Stack>
+          <Box flexGrow={1} />
+          <SpotifyIcon color='#1DB954' size='50px' />
+        </Stack>
       </Box>
-    </Box>
+    </Stack>
   )
 }
