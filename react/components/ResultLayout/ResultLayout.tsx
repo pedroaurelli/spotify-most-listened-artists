@@ -20,14 +20,17 @@ export default function ResultLayout (props: ResultLayoutProps) {
   const handleDownloadImage = async () => {
 
     const element = document.getElementById('print')
+    const div = document.createElement('div')
+
+    const elementFallBack = element || div
 
     console.log(element?.style)
 
-    const canvas = await html2canvas(element, {
+    const canvas = await html2canvas(elementFallBack, {
       backgroundColor: null,
       allowTaint: true,
       useCORS: true,
-      scale: '1'
+      scale: 1
     })
 
     const data = canvas.toDataURL('png')
