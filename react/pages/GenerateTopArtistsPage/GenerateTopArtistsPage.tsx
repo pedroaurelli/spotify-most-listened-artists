@@ -5,8 +5,8 @@ import { useAsync } from 'react-async-hook'
 import { CircularProgress, Grid } from '@mui/material'
 
 import SpotifyClient from '../../../client/spotify-client'
-import ArtistsLayout from '../../components/ArtistsLayout'
 import UnauthorizedAccess from '../../components/UnauthorizedAccess'
+import ResultLayout from '../../components/ResultLayout/ResultLayout'
 
 export default function GenerateTopArtistsPage () {
   const router = useRouter()
@@ -15,14 +15,22 @@ export default function GenerateTopArtistsPage () {
   const userTopArtists = useAsync(async () => await client.getUserTopArtists(router.query.code as string), [router.isReady])
 
   return (
-    <Grid container sx={{ height: '100vh', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+    <Grid
+      container
+      sx={{
+        minHeight: '100vh',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
       <Grid item>
         <>
           {userTopArtists.loading && (
             <CircularProgress color='primary' />
           )}
           {userTopArtists.result && (
-            <ArtistsLayout data={userTopArtists.result} />
+            <ResultLayout data={userTopArtists.result} />
           )}
           {userTopArtists.error && <UnauthorizedAccess />}
         </>

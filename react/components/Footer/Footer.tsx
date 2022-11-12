@@ -30,8 +30,7 @@ export default function Footer () {
       sx={{
         position: { xs: 'static', md: 'fixed' },
         bottom: '20px',
-        right: '50px',
-        scale: { xs: '0.8', md: '1'}
+        right: '50px'
       }}
     >
       <Stack
@@ -43,7 +42,7 @@ export default function Footer () {
         {socialMediasRecord.map((item, index) => (
           <IconButton
             key={index}
-            sx={{ height: '64px', width: '64px', color: '#B8B8B8' }}
+            sx={{ height: 'auto', width: 'auto', color: '#B8B8B8' }}
             href={item.href}
             target='_blank'
           >
@@ -57,7 +56,7 @@ export default function Footer () {
         sx={{ whiteSpace: 'nowrap' }}
         textAlign='center'
       >
-        Development by Pedro Aureliano
+        Developed by Pedro Aureliano
       </Typography>
     </Box>
   )

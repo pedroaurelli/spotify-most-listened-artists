@@ -39,7 +39,7 @@ export const themeOptions: ThemeOptions = {
       fontWeight: '500',
       color: '#fff',
       '@media (max-width:600px)': {
-        fontSize: '20px',
+        fontSize: '23px',
       }
     },
     body1: {
