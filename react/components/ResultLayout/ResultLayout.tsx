@@ -5,6 +5,7 @@ import { getUserTopArtistsResult } from '../../../client/types/get-user-top-arti
 import ArtistsResultCard from '../ArtistsResultCard'
 import DownloadIcon from '@mui/icons-material/Download'
 import { Stack } from '@mui/system'
+import ShareIcon from '@mui/icons-material/Share'
 
 export type ResultLayoutProps = {
   data: getUserTopArtistsResult
@@ -16,6 +17,18 @@ export default function ResultLayout (props: ResultLayoutProps) {
   useEffect(() => {
     setComponentDidMount(true)
   }, [])
+
+  const handleShare = () => {
+    if (navigator.share !== undefined) {
+      navigator.share({
+        title: 'Mais ouvidos no mês',
+        text: 'lorem ipsum',
+        url: 'https://localhost:3000',
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error))
+    }
+  }
 
   const handleDownloadImage = async () => {
 
@@ -58,17 +71,33 @@ export default function ResultLayout (props: ResultLayoutProps) {
           <div>
             <ArtistsResultCard data={props.data} id='print' />
           </div>
-          <Button
-            variant='outlined'
-            onClick={() => handleDownloadImage()}
-            startIcon={<DownloadIcon />}
-            sx={{
-              alignSelf: 'center',
-              my: '16px'
-            }}
+          <Stack
+            direction={{ xs: 'column', md: 'row' }}
+            spacing='16px'
+            alignSelf='center'
+            my='24px'
           >
-            Salvar imagem
-          </Button>
+            <Button
+              variant='outlined'
+              onClick={() => handleDownloadImage()}
+              startIcon={<DownloadIcon />}
+              sx={{
+                alignSelf: 'center'
+              }}
+            >
+              Salvar imagem
+            </Button>
+            <Button
+              variant='text'
+              onClick={() => handleShare()}
+              startIcon={<ShareIcon />}
+              sx={{
+                alignSelf: 'center'
+              }}
+            >
+              Compartilhar
+            </Button>
+          </Stack>
         </Stack>
       )}
     </>
