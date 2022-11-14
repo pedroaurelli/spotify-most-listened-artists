@@ -28,4 +28,5 @@ Não! Os dados coletados NÃO estão sendo salvos em nenhum database. Fique tran
 #
 ### 📜 Não estou na *whitelist*, e agora? 
 Sem problemas! Infelizmente a API do Spotify é bastante burocrática, e apenas 25 usuários podem ter acesso a aplicação para consumir a API em modo de [DESENVOLVIMENTO](https://developer.spotify.com/documentation/web-api/guides/development-extended-quota-modes/). Entre em contato comigo pelo [LinkedIn](https://www.linkedin.com/in/pedro-aureliano/) para obter acesso!    
-
+#
+> Deixe uma Estrela "⭐" no repositório caso tenha gostado! Muito obrigado!
