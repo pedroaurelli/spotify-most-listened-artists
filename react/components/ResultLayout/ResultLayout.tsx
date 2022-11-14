@@ -30,7 +30,9 @@ export default function ResultLayout (props: ResultLayoutProps) {
       backgroundColor: null,
       allowTaint: true,
       useCORS: true,
-      scale: 1
+      scale: 1,
+      windowHeight: 1000,
+      windowWidth: 1000
     })
 
     const data = canvas.toDataURL('png')

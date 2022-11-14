@@ -16,7 +16,9 @@ export default function ArtistsResultCard (props: ArtistsResultCard) {
       id={props.id}
       sx={{
         width: '660px',
-        height: { md: 'auto' }
+        height: { xs: '600px', sm: 'auto' },
+        mt: '60px',
+        scale: { xs: '0.5', sm: '0.7', md: '1'}
       }}
     >
       <Grid
