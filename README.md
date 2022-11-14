@@ -12,11 +12,15 @@ Primeira aplicação consumindo a API do Spotify, 100% desenvolvida e prototipad
 | [React](https://pt-br.reactjs.org) | Biblioteca para criar interfaces web |
 | [Next.js](https://nextjs.org) | Framework React com SSR |
 | [TypeScript](https://www.typescriptlang.org) | Superset do Javascript, adicionando tipagem à linguagem |
-| [Axios](https://axios-http.com/) | Para realizar as chamas à API  |
+| [Axios](https://axios-http.com/) | Realizar as chamadas à API  |
 | [Material UI](https://mui.com/pt/) |  Biblioteca de componentes React |
-| [React Async Hook](https://www.npmjs.com/package/react-async-hook) | Biblioteca para fazer fetch dentro do componente  |
+| [React Async Hook](https://www.npmjs.com/package/react-async-hook) | Realizar fetch dentro do componente  |
 | [ESLint](https://eslint.org) |  Análise de código javascript para identificar problemas |
-| [html2Canva](https://www.npmjs.com/package/html2canvas) | Biblioteca para trasnformar o componente em imagem  |
+| [html2Canva](https://www.npmjs.com/package/html2canvas) | Biblioteca para transformar o componente em imagem  |
 
+### Simples, prático e divertido
+Descubra fácilmente os artistas que você mais ouviu no mês! Apenas faça login e deixe que a aplicação resolva o restante.
 
+### A aplicação está coletando e salvando dados dos usuarios em um database externo? 
+Não! Os dados coletados NÃO estão sendo salvos em nenhum database. Fique tranquilo!
 
