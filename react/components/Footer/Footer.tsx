@@ -26,13 +26,7 @@ const socialMediasRecord: socialMediasRecordType[] = [
 
 export default function Footer () {
   return (
-    <Box
-      sx={{
-        position: { xs: 'static', md: 'fixed' },
-        bottom: '20px',
-        right: '50px'
-      }}
-    >
+    <Box>
       <Stack
         direction='row'
         alignItems='center'
@@ -42,7 +36,7 @@ export default function Footer () {
         {socialMediasRecord.map((item, index) => (
           <IconButton
             key={index}
-            sx={{ height: 'auto', width: 'auto', color: '#B8B8B8' }}
+            sx={{ height: 'auto', width: 'auto', color: '#6b6b6b' }}
             href={item.href}
             target='_blank'
           >
@@ -52,7 +46,7 @@ export default function Footer () {
       </Stack>
       <Typography
         fontWeight='300'
-        color='#B8B8B8'
+        color='#6b6b6b'
         sx={{ whiteSpace: 'nowrap' }}
         textAlign='center'
       >
