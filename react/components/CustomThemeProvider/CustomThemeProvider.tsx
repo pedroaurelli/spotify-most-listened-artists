@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { themeOptions } from './theme-options'
+import { themeOptions } from '../../../src/theme-options'
 import { ptBR } from '@mui/material/locale'
 import { createTheme, ThemeProvider } from '@mui/material'
 

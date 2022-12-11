@@ -1,6 +1,6 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
-import CustomThemeProvider from '../styles'
+import CustomThemeProvider from '../react/components/CustomThemeProvider'
 import CssBaseline from '@mui/material/CssBaseline'
 import PageLayout from '../react/components/PageLayout'
 
