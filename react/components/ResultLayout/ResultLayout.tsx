@@ -21,9 +21,8 @@ export default function ResultLayout (props: ResultLayoutProps) {
   const handleShare = () => {
     if (navigator.share !== undefined) {
       navigator.share({
-        title: 'Mais ouvidos no mês',
-        text: 'lorem ipsum',
-        url: 'https://localhost:3000',
+        text: 'Spotify - Mais ouvidos no mês! Faça já o seu!',
+        url: 'https://pedroaurelli-spotify-project.vercel.app/'
       })
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error))
@@ -54,7 +53,7 @@ export default function ResultLayout (props: ResultLayoutProps) {
 
     if (typeof link.download === 'string') {
       link.href = data
-      link.download = 'image.jpg'
+      link.download = 'image.png'
 
       document.body.appendChild(link)
       link.click()
