@@ -1,32 +1,33 @@
-# Spotify - Descubra os artistas que você mais ouviu no mês
+# Spotify - Discover the artists you've listened to the most this month
 
-Primeira aplicação consumindo a API do Spotify, 100% desenvolvida e prototipada por mim. Com isso, utilizei o projeto para estudar conceitos que uso no dia a dia e ter um maior contato com consumo de APIs e a autenticação OAuth 2.0. 
->Este projeto foi realizado para fins educacionais, não possui nenhuma intenção lucrativa.
+My first project consuming Spotify API, that was developmented and prototyped by myself. I used this project to learn about some concepts that i use day by day, and learn more about fetch external APIs and OAuth 2.0.
+>This project was carried out for educational purposes, it has no lucrative intention.
 
-## Dependêcias do projeto
+## App dependencies
 
-| Package |  Descrição  |
+| Package |  Description  |
 | ------------------- | ------------------- |
-| [React](https://pt-br.reactjs.org) | Biblioteca para criar interfaces web |
-| [Next.js](https://nextjs.org) | Framework React com SSR |
-| [TypeScript](https://www.typescriptlang.org) | Superset do Javascript, adicionando tipagem à linguagem |
-| [Axios](https://axios-http.com/) | Realizar as chamadas à API  |
-| [Material UI](https://mui.com/pt/) |  Biblioteca de componentes React |
-| [React Async Hook](https://www.npmjs.com/package/react-async-hook) | Realizar fetch dentro do componente  |
-| [ESLint](https://eslint.org) |  Análise de código javascript para identificar problemas |
-| [html2Canva](https://www.npmjs.com/package/html2canvas) | Biblioteca para transformar o componente em imagem  |
+| [React](https://pt-br.reactjs.org) | Library to create web interfaces |
+| [Next.js](https://nextjs.org) | Framework React with SSR |
+| [TypeScript](https://www.typescriptlang.org) | Javascript superset, add types and generics to project |
+| [Axios](https://axios-http.com/) | Fetch api  |
+| [Material UI](https://mui.com/pt/) |  Components library |
+| [React Async Hook](https://www.npmjs.com/package/react-async-hook) | Fetch api and mutation   |
+| [ESLint](https://eslint.org) |  Enforce style code and fix syntax errors |
+| [html2Canva](https://www.npmjs.com/package/html2canvas) | Library to transform component to image  |
 
-## Casos de uso
-Descubra fácilmente os artistas que você mais ouviu no mês! Apenas faça login e deixe que a aplicação resolva o restante.
+## Use cases
+Easily discover the artists you listened to the most in the month! Just log in and let the app do the rest.
 ![chrome-capture-2022-10-14 (1)](https://user-images.githubusercontent.com/88735972/201666084-faa2b4ac-3495-47e3-ba82-a3f33a035351.gif)
 
-## Tratamento de dados dos usuários 
-Não! Os dados coletados NÃO estão sendo salvos em nenhum database. Fique tranquilo!
+## User data tratament
+No! The collected data is NOT being saved in any database. Rest assured!
 #
-### 📜 Não estou na *whitelist*, e agora? 
-Sem problemas! Infelizmente a API do Spotify é bastante burocrática, e apenas 25 usuários podem ter acesso a aplicação para consumir a API em modo de [DESENVOLVIMENTO](https://developer.spotify.com/documentation/web-api/guides/development-extended-quota-modes/). Entre em contato comigo pelo [LinkedIn](https://www.linkedin.com/in/pedro-aureliano/) para obter acesso!    
+### 📜 I´m not in whitelist.
+No problem! Unfortunately the Spotify API is quite bureaucratic, and only 25 users can access the application to consume the API in [DEVELOPMENT MODE](https://developer.spotify.com/documentation/web-api/guides/development-extended-quota-modes/). Contact me by [LinkedIn](https://www.linkedin.com/in/pedro-aureliano/) to give the access    
 #
-> Deixe uma Estrela "⭐" no repositório caso tenha gostado! Muito obrigado!
+> Leave a "⭐" Star in the repository if you liked it! Thank you very much!
 
-## Conclusão e Aprendizados
-No inicio do projeto, tive algumas etapas, como levantar os requisitos, arquitetar os casos de uso e principalmente ler a documentação do Spotify para compreender como funcionava a autenticação. Nesse projeto, aprendi sobre OAuth2.0 e um pouco mais sobre canva no html, com a biblioteca html2Canva.   
+## Conclusion and Lessons
+At the beginning of the project, I had a few steps, such as raising the requirements, architecting the use cases and mainly reading the Spotify documentation to understand how authentication worked. In this project, I learned about OAuth2.0 and a little more about canva in html, with the html2Canva library.
+
